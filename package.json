@@ -1,0 +1,23 @@
+{
+  "name": "protocol_buffers_poc",
+  "version": "0.0.1",
+  "description": "gRPC / Protocol Buffers proof-of-concept (PoC)",
+  "type": "module",
+  "scripts": {
+    "start": "tsx server.ts"
+  },
+  "private": true,
+  "license": "ISC",
+  "dependencies": {
+    "@bufbuild/buf": "^1.15.0-1",
+    "@bufbuild/connect": "^0.8.4",
+    "@bufbuild/connect-fastify": "^0.8.4",
+    "@bufbuild/protobuf": "^1.1.1",
+    "@bufbuild/protoc-gen-connect-es": "^0.8.4",
+    "@bufbuild/protoc-gen-es": "^1.1.1",
+    "@fastify/cors": "^8.2.1",
+    "fastify": "^4.15.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.2"
+  }
+}

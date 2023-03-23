@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package api.v1;
+
+enum GameState {
+  GAME_STATE_PENDING_UNSPECIFIED = 0;
+  GAME_STATE_ONGOING = 1;
+  GAME_STATE_PAUSED = 2;
+  GAME_STATE_ENDED = 3;
+}
+
+message EmptyResponse {}
+
+message RegisterArenaRequest {
+  string arena_uuid = 1;
+  string arena_name = 2;
+  string arena_email = 3;
+}
+
+message GameEvent {
+  string arena_uuid = 1;
+  string game_uuid = 2;
+  string game_title = 3;
+  GameState game_state = 4;
+  uint32 player_count = 5;
+}
+
+service InstallationService {
+  rpc RegisterInstallation(RegisterArenaRequest) returns (EmptyResponse) {}
+  rpc NotifyGameCreated(GameEvent) returns (EmptyResponse) {}
+  rpc NotifyGameStarted(GameEvent) returns (EmptyResponse) {}
+  rpc NotifyGameEnded(GameEvent) returns (EmptyResponse) {}
+}
